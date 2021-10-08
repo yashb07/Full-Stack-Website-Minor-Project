@@ -1,0 +1,23 @@
+.flex {
+    display: flex;
+}
+
+.btn-primary {
+    padding: 10px 35px;
+    border: none;
+    border-radius: 20px;
+    outline: none;
+    text-decoration: none;
+}
+
+.submit {
+    border-radius: 20px;
+    background: var(--blue-primary);
+    color: var(--black-primary);
+    transition: all 0.3s ease;
+}
+
+.submit:hover {
+    background: var(--black-primary);
+    color: var(--blue-primary);
+}
