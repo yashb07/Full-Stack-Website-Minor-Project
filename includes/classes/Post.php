@@ -168,19 +168,18 @@ class Post {
 					}
 
 					$str .= "
-					<div class='status_post'>
-								<div class='post_profile_pic'>
+					<div class='status-post'>
+								<div class='post-profile-pic'>
 									<img src='$profile_pic'>
 								</div>
-
-								<div class='posted_by>
-									<a href='$added_by'> $first_name $last_name </a> $user_to &nbsp;&nbsp;&nbsp;&nbsp;$time_message
+								<div class='post-content'>
+									<div class='posted-by'>
+										<a href='$added_by'> $first_name $last_name </a> $user_to &nbsp;&nbsp;&nbsp;&nbsp;$time_message
+									</div>
+									<div id='post-body'>
+										$body
+									</div>
 								</div>
-								<div id='post_body'>
-									$body
-									<br>
-								</div>
-
 							</div>
 							<hr>
 							";

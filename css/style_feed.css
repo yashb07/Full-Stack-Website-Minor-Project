@@ -1,0 +1,184 @@
+@import "utilities.css";
+@import url("https://fonts.googleapis.com/css2?family=Lato&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+:root {
+  --menu-width: 40em; /* Width of menu */
+  --items: 6; /* Number of items you have */
+  --item-width: calc(var(--menu-width) / var(--items));
+
+  --blue-dark: #026670;
+  --blue-dark-light: #008894;
+  --blue-primary: #9fedd7;
+  --blue-secondary: #63d5c3;
+
+  --white-primary: #edeae5;
+  --pure: #ffffff;
+
+  --black-primary: #000000;
+  --black-secondary: #1a1a1d;
+  --black-tertiary: #4e4e50;
+}
+body {
+  width: 100%;
+  height: 100%;
+  color: var(--black-primary);
+  box-sizing: border-box;
+}
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Poppins", sans-serif;
+  font-size: 62.5%;
+}
+a {
+  text-decoration: none;
+}
+
+.feed-container {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    grid-gap: 5rem;
+    width: 100%;
+    padding: 5rem 0rem;
+  }
+  .feed-container .user-details-container {
+    height: 15rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    border-radius: 2rem;
+    margin-left: 5rem;
+    padding: 2rem 3rem;
+  }
+  
+  .feed-container .user-details-container a img {
+    border-radius: 2rem;
+  }
+  
+  .feed-container .user-details-container .user-details {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    font-size: 1.6rem;
+    padding-left: 2rem;
+  }
+  
+  .feed-container .user-details-container .user-details a {
+    color: var(--blue-dark-light);
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+  }
+  
+  .feed-container .add-post {
+    width: 90%;
+    height: 100%;
+    padding-right: 2rem;
+  }
+  
+  .feed-container .add-post .post-form{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: flex-end;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    border-radius: 2rem;
+    padding: 2rem;
+  }
+  
+  .feed-container .add-post .post-form textarea {
+    width: 80%;
+    height: 20rem;
+    border-radius: 1rem;
+    border: 1px solid var(--blue-dark-light);
+    box-shadow: rgba(0, 0, 0, 0.04) 0px 3px 8px;
+    padding: 1.5rem;
+    font-size: 1.4rem;
+    font-weight: 400;
+    resize: none;
+  }
+  
+  .feed-container .add-post .post-form textarea:focus {
+    outline: 0;
+    border: 1px solid var(--blue-dark);
+  }
+  
+  .feed-container .add-post .post-form input {
+    padding: 1rem 2rem;
+    border: none;
+    border-radius: 1rem;
+    background-color: var(--blue-dark-light);
+    color: var(--white-primary);
+    font-size: 1.6rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .feed-container .add-post .post-form input:hover {
+    background: var(--blue-dark);
+  }
+  
+  .feed-container .add-post .posts_area {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 2rem;
+  }
+  .feed-container .add-post .posts_area hr {
+    width: 100%;
+    color: var(--blue-primary);
+  }
+  .feed-container .add-post .posts_area .status-post {
+    width: 100%;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    font-size: 3rem;
+    font-weight: 900;
+    padding: 1rem 0rem;
+    min-height: 3rem;
+  }
+  
+  .feed-container .add-post .posts_area .status-post .post-profile-pic img {
+    width: 70%;
+    border-radius: 1rem;
+  }
+  
+  .feed-container .add-post .posts_area .status-post .post-content {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+  }
+  
+  .feed-container .add-post .posts_area .status-post .post-content .posted-by {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+    font-size: 1.4rem;
+    font-weight: 400;
+    color: var(--blue-dark-light);
+  }
+  
+  .feed-container .add-post .posts_area .status-post .post-content .posted-by a {
+    font-size: 3rem;
+    color: var(--blue-dark-light);
+    transition: all 0.3s ease;
+  }
+
+  .feed-container .add-post .posts_area .status-post .post-content .posted-by a:hover {
+    color: var(--blue-dark);
+  }
+  
+  .feed-container .add-post .posts_area .status-post .post-content .post-body {
+    font-size: 2rem;
+    font-weight: 400;
+  }
