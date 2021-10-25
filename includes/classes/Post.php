@@ -8,11 +8,11 @@ class Post {
 		$this->user_obj = new User($con, $user);
 	}
 
-	public function submitPost($body, $user_to) {
-		$body = strip_tags($body); //removes html tags 
+	public function submitPost($body, $user_to, $imageName) {
+		$body = strip_tags($body); //removes html tags
 		$body = mysqli_real_escape_string($this->con, $body);
-		$check_empty = preg_replace('/\s+/', '', $body); //Deltes all spaces 
-      
+		$check_empty = preg_replace('/\s+/', '', $body); //Deltes all spaces
+
 		if($check_empty != "") {
 
 
@@ -26,32 +26,31 @@ class Post {
 				$user_to = "none";
 			}
 
-			//insert post 
-			$query = mysqli_query($this->con, "INSERT INTO posts VALUES('', '$body', '$added_by', '$user_to', '$date_added', 'no', 'no', '0')");
+			//insert post
+			$query = mysqli_query($this->con, "INSERT INTO posts VALUES('', '$body', '$added_by', '$user_to', '$date_added', 'no', 'no', '0','$imageName')");
 			$returned_id = mysqli_insert_id($this->con);
 
-			//Insert notification 
+			//Insert notification
 
-			//Update post count for user 
+			//Update post count for user
 			$num_posts = $this->user_obj->getNumPosts();
 			$num_posts++;
 			$update_query = mysqli_query($this->con, "UPDATE users SET num_posts='$num_posts' WHERE username='$added_by'");
-
 		}
 	}
 
 	public function loadPostsFriends($data, $limit) {
 
-		$page = $data['page']; 
+		$page = $data['page'];
 		$userLoggedIn = $this->user_obj->getUsername();
 
-		if($page == 1) 
+		if($page == 1)
 			$start = 0;
 		else 	//if page is loaded and you cross 1 page, then show posts after no.10 post
 			$start = ($page - 1) * $limit;
 
 
-		$str = ""; //String to return 
+		$str = ""; //String to return
 		$data_query = mysqli_query($this->con, "SELECT * FROM posts WHERE deleted='no' ORDER BY id DESC");
 
 		if(mysqli_num_rows($data_query) > 0) {
@@ -65,7 +64,7 @@ class Post {
 				$body = $row['body'];
 				$added_by = $row['added_by'];
 				$date_time = $row['date_added'];
-
+				$imagePath = $row['image'];
 				//show to user even if it isnt meant for anyone
 				if($row['user_to'] == "none") {
 					$user_to = "";
@@ -82,10 +81,10 @@ class Post {
 					continue;
 				}
 
-				
+
 
 					if($num_iterations++ < $start)
-						continue; 
+						continue;
 
 
 					//Once 10 posts have been loaded, break
@@ -107,11 +106,11 @@ class Post {
 					$date_time_now = date("Y-m-d H:i:s");
 					$start_date = new DateTime($date_time); //Time of post
 					$end_date = new DateTime($date_time_now); //Current time
-					$interval = $start_date->diff($end_date); //Difference between dates 
+					$interval = $start_date->diff($end_date); //Difference between dates
 					if($interval->y >= 1) {
 						if($interval == 1)
 							$time_message = $interval->y . " year ago"; //1 year ago
-						else 
+						else
 							$time_message = $interval->y . " years ago"; //1+ year ago
 					}
 					else if ($interval-> m >= 1) {
@@ -167,6 +166,16 @@ class Post {
 						}
 					}
 
+					if($imagePath !="")
+					{
+						$imageDiv ="<div class='postedImage'>
+						<img src='$imagePath' height='100px' width='100px'>
+						</div>";
+					}
+					else{
+						$imageDiv="";
+					}
+
 					$str .= "
 					<div class='status-post'>
 								<div class='post-profile-pic'>
@@ -178,19 +187,21 @@ class Post {
 									</div>
 									<div id='post-body'>
 										$body
+										<br>
+										$imageDiv
 									</div>
 								</div>
 							</div>
 							<hr>
 							";
-				
+
 
 			} //End while loop
 
-			if($count > $limit) 
+			if($count > $limit)
 				$str .= "<input type='hidden' class='nextPage' value='" . ($page + 1) . "'>
 							<input type='hidden' class='noMorePosts' value='false'>";
-			else 
+			else
 				$str .= "<input type='hidden' class='noMorePosts' value='true'><p style='text-align: centre;'> No more posts to show! </p>";
 		}
 

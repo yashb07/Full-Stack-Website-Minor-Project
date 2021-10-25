@@ -51,11 +51,11 @@ a {
     margin-left: 5rem;
     padding: 2rem 3rem;
   }
-  
+
   .feed-container .user-details-container a img {
     border-radius: 2rem;
   }
-  
+
   .feed-container .user-details-container .user-details {
     display: flex;
     width: 100%;
@@ -65,20 +65,20 @@ a {
     font-size: 1.6rem;
     padding-left: 2rem;
   }
-  
+
   .feed-container .user-details-container .user-details a {
     color: var(--blue-dark-light);
     font-size: 2rem;
     font-weight: 700;
     margin-bottom: 1rem;
   }
-  
+
   .feed-container .add-post {
     width: 90%;
     height: 100%;
     padding-right: 2rem;
   }
-  
+
   .feed-container .add-post .post-form{
     width: 100%;
     display: flex;
@@ -89,7 +89,7 @@ a {
     border-radius: 2rem;
     padding: 2rem;
   }
-  
+
   .feed-container .add-post .post-form textarea {
     width: 80%;
     height: 20rem;
@@ -101,12 +101,12 @@ a {
     font-weight: 400;
     resize: none;
   }
-  
+
   .feed-container .add-post .post-form textarea:focus {
     outline: 0;
     border: 1px solid var(--blue-dark);
   }
-  
+
   .feed-container .add-post .post-form input {
     padding: 1rem 2rem;
     border: none;
@@ -118,11 +118,13 @@ a {
     cursor: pointer;
     transition: all 0.3s ease;
   }
-  
+
   .feed-container .add-post .post-form input:hover {
     background: var(--blue-dark);
   }
-  
+  .feed-container .add-post .post-form #mediabut {
+    font-size: 5rem;
+  }
   .feed-container .add-post .posts_area {
     width: 100%;
     display: flex;
@@ -138,18 +140,22 @@ a {
     width: 100%;
     box-sizing: border-box;
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     font-size: 3rem;
     font-weight: 900;
     padding: 1rem 0rem;
     min-height: 3rem;
   }
-  
+
+  .post-profile-pic {
+    margin: 1rem;
+  }
+
   .feed-container .add-post .posts_area .status-post .post-profile-pic img {
-    width: 70%;
+    width: 100%;
     border-radius: 1rem;
   }
-  
+
   .feed-container .add-post .posts_area .status-post .post-content {
     height: 100%;
     display: flex;
@@ -157,7 +163,7 @@ a {
     align-items: flex-start;
     justify-content: space-between;
   }
-  
+
   .feed-container .add-post .posts_area .status-post .post-content .posted-by {
     width: 100%;
     display: flex;
@@ -167,7 +173,7 @@ a {
     font-weight: 400;
     color: var(--blue-dark-light);
   }
-  
+
   .feed-container .add-post .posts_area .status-post .post-content .posted-by a {
     font-size: 3rem;
     color: var(--blue-dark-light);
@@ -177,8 +183,13 @@ a {
   .feed-container .add-post .posts_area .status-post .post-content .posted-by a:hover {
     color: var(--blue-dark);
   }
-  
-  .feed-container .add-post .posts_area .status-post .post-content .post-body {
+
+  #post-body {
     font-size: 2rem;
     font-weight: 400;
+  }
+
+  .postedImage img{
+    width: 80%;
+    height: 80%;
   }
