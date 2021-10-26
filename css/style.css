@@ -105,8 +105,8 @@ body {
   width: 50%;
   background-image: linear-gradient(
     30deg,
-    var(--blue-dark-light),
-    var(--blue-dark)
+    var(--blue-secondary),
+    var(--blue-primary)
   );
   flex-direction: column;
   align-items: center;

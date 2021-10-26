@@ -59,9 +59,11 @@ include("includes/classes/Post.php");
 		<div class="add-post">
 			<form class="post-form" action="index.php" method="POST" enctype="multipart/form-data">
 				<textarea name="post_text"id="post_text" placeholder="What's on your mind?" maxlength="100"></textarea>
-				<input type="submit" name="post" id="post_button" value="Post">
-				<input type="file" name="fileToUpload" id="fileToUpload" value="Select Media" style="display:none;">
-				<label for="fileToUpload" id="mediabut"><i class="bi bi-plus-circle fa-10x"></i></label>
+				<div class="post-btn">
+					<input type="file" name="fileToUpload" id="fileToUpload" value="Select Media" style="display:none;">
+					<label for="fileToUpload" id="mediabut"><i class="bi bi-plus-circle fa-10x"></i></label>
+					<input type="submit" name="post" id="post_button" value="Post">
+				</div>
 				<!-- <button type="submit" name="post" id="post_button">Post</button> -->
 			</form>
 			<div class="posts_area"></div>

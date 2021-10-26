@@ -1,6 +1,7 @@
 @import "utilities.css";
 @import url("https://fonts.googleapis.com/css2?family=Lato&display=swap");
 @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
 :root {
   --menu-width: 40em; /* Width of menu */
   --items: 6; /* Number of items you have */
@@ -18,6 +19,7 @@
   --black-secondary: #1a1a1d;
   --black-tertiary: #4e4e50;
 }
+
 body {
   width: 100%;
   height: 100%;
@@ -30,6 +32,20 @@ body {
   font-family: "Poppins", sans-serif;
   font-size: 62.5%;
 }
+
+::-webkit-scrollbar {
+  width: 0.75rem;
+}
+::-webkit-scrollbar-track {
+  background: #ffff;
+}
+::-webkit-scrollbar-thumb {
+  background: #008894;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #026670;
+}
+
 a {
   text-decoration: none;
 }
@@ -84,19 +100,18 @@ a {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
-    align-items: flex-end;
-    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    align-items: center;
     border-radius: 2rem;
-    padding: 2rem;
   }
 
   .feed-container .add-post .post-form textarea {
-    width: 80%;
+    width: 100%;
     height: 20rem;
     border-radius: 1rem;
-    border: 1px solid var(--blue-dark-light);
-    box-shadow: rgba(0, 0, 0, 0.04) 0px 3px 8px;
-    padding: 1.5rem;
+    border: 0px solid var(--blue-dark-light);
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    padding: 2rem;
+    padding-right: 20rem;
     font-size: 1.4rem;
     font-weight: 400;
     resize: none;
@@ -104,10 +119,30 @@ a {
 
   .feed-container .add-post .post-form textarea:focus {
     outline: 0;
-    border: 1px solid var(--blue-dark);
+    /* border: 0.25px solid var(--blue-dark); */
   }
 
-  .feed-container .add-post .post-form input {
+  .feed-container .add-post .post-form .post-btn {
+    position: absolute;
+    right: 10%;
+    display: flex;
+    align-items: center;
+    margin-bottom: -10rem;
+  }
+
+  .post-btn label {
+    margin-right: 2rem;
+    cursor: pointer;
+  }
+  .post-btn label i {
+    color: var(--blue-dark-light);
+    transition: all 0.3s ease;
+  }
+  .post-btn label i:hovver {
+    color: var(--blue-dark);
+  }
+
+  .feed-container .add-post .post-form .post-btn input {
     padding: 1rem 2rem;
     border: none;
     border-radius: 1rem;
@@ -149,11 +184,13 @@ a {
 
   .post-profile-pic {
     margin: 1rem;
+    margin-right: 3rem;
   }
 
   .feed-container .add-post .posts_area .status-post .post-profile-pic img {
-    width: 100%;
-    border-radius: 1rem;
+    width: 7rem;
+    height: 7rem;
+    border-radius: 50%;
   }
 
   .feed-container .add-post .posts_area .status-post .post-content {
@@ -168,7 +205,7 @@ a {
     width: 100%;
     display: flex;
     align-items: center;
-    margin-bottom: 1rem;
+    margin: 1rem 0rem;
     font-size: 1.4rem;
     font-weight: 400;
     color: var(--blue-dark-light);
@@ -184,12 +221,12 @@ a {
     color: var(--blue-dark);
   }
 
-  #post-body {
-    font-size: 2rem;
+  #post-body .post-desc{
+    font-size: 1.5rem;
     font-weight: 400;
   }
 
-  .postedImage img{
-    width: 80%;
-    height: 80%;
+  #post-body .post-img img{
+    width: 90%;
+    height: 90%;
   }

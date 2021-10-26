@@ -186,9 +186,13 @@ class Post {
 										<a href='$added_by'> $first_name $last_name </a> $user_to &nbsp;&nbsp;&nbsp;&nbsp;$time_message
 									</div>
 									<div id='post-body'>
-										$body
+										<div class='post-desc'>
+											$body
+										</div>
 										<br>
-										$imageDiv
+										<div class='post-img'>
+											$imageDiv
+										</div>
 									</div>
 								</div>
 							</div>
