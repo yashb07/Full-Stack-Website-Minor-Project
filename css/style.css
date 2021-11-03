@@ -4,6 +4,7 @@
 
 :root {
   --blue-dark: #026670;
+  --blue-dark-light: #008894;
   --blue-primary: #9fedd7;
   --blue-secondary: #63d5c3;
 
@@ -104,7 +105,7 @@ body {
   width: 50%;
   background-image: linear-gradient(
     30deg,
-    var(--blue-dark),
+    var(--blue-secondary),
     var(--blue-primary)
   );
   flex-direction: column;
@@ -137,7 +138,7 @@ body {
 
 .right {
   width: 50%;
-  background: var(--white-primary);
+  background: #FFF;
   flex-direction: column;
   align-items: flex-start;
   justify-content: space-evenly;
