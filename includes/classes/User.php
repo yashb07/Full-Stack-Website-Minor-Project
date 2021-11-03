@@ -40,9 +40,16 @@ class User {
 			return false;
 	}
 
-	
-
-
+	public function isFriend($username_to_check){ 
+		$username_to_check = ",".$username_to_check.",";
+		if ((strstr($this->user['friend_array'],$username_to_check) || $username_to_check == $this->user['username'])){
+			return true;
+		}
+		else{
+			//if username is in the friend array and the username is not new, it will return false
+			return false;
+		}
+	}
 
 
 }
