@@ -141,10 +141,12 @@
 				$user_name = $user_obj->getFirstAndLastName();
 				?>
 				<div class = "comment_section">
-					<a href = "<?php echo $posted_by?>" target="__blank"></a>
-					<a href = "<?php echo $posted_by?>" target="__blank">
-						<?php echo "<h1>$user_name</h1>" ?>
-					</a>
+					<div class="comment-title">
+						<a href = "<?php echo $posted_by?>" target="__blank"><img src="<?php echo $user_obj->getProfilePic();?>" title="<?php echo $posted_by; ?>" style="float:left;" height="30"></a>
+						<a href = "<?php echo $posted_by?>" target="__blank">
+							<?php echo "<h1>$user_name</h1>" ?>
+						</a>
+					</div>
 					<?php echo
 					"<div class='comment-body'>
 						<p style='width: 70%;'>$comment_body</p>
