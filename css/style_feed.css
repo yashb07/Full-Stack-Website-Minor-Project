@@ -171,6 +171,14 @@ a {
     width: 100%;
     color: var(--blue-primary);
   }
+  .post-flex {
+    min-width: 70vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 1px solid var(--blue-dark-light);
+  }
   .feed-container .add-post .posts_area .status-post {
     width: 100%;
     box-sizing: border-box;
@@ -229,4 +237,77 @@ a {
   #post-body .post-img img{
     width: 90%;
     height: 90%;
+  }
+
+  .post_comment {
+    width: 80%;
+  }
+
+  #comment_form {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  #comment_form textarea {
+    width: 80%;
+    padding: 1rem 2rem;
+    border-radius: 0.5rem;
+    color: #616060;
+    font-size: 1.8rem;
+    border: 1px solid var(--blue-dark-light);
+  }
+  #comment_form textarea:focus {
+    outline: none !important;
+    border: 1px solid var(--blue-dark);
+    box-shadow: 0;
+  }
+  #comment_form input[type="submit"] {
+    padding: 1rem 2rem;
+    border: 0;
+    font-size: 1.8rem;
+    background-color: var(--blue-dark-light);
+    color: var(--pure);
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  #comment_form input[type="submit"]:hover {
+    background-color: var(--blue-dark);
+  }
+
+  .comment_section {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    margin: 1rem 0;
+    border-bottom: 1px solid var(--blue-dark);
+  }
+  .comment_section a {
+    text-decoration: none;
+    color: var(--blue-dark-light);
+    transition: all 0.3s ease;
+  }
+  .comment_section a:hover {
+    color: var(--blue-dark);
+  }
+  .comment_section a h1 {
+    font-size: 2.5rem;
+  }
+  .comment_section img {
+    width: 100%;
+    border-radius: 3px;
+  }
+  .comment_section .comment-body {
+    display: flex;
+    width: 90%;
+    align-items: center;
+    justify-content: space-between;
+    margin: 1rem 0;
+  }
+  .comment_section .comment-body p {
+    font-size: 1.6rem;
+    font-weight: 300;
   }
