@@ -195,7 +195,7 @@ class Post {
 								</div>
 								<div class='post-content'>
 									<div class='posted-by'>
-										<a href='$added_by'> $first_name $last_name </a> $user_to &nbsp;&nbsp;&nbsp;&nbsp;$time_message
+										<a style='font-size: 20px; font-weight: bold; color: #008894;' href='$added_by'> $first_name $last_name </a> $user_to &nbsp;&nbsp;&nbsp;&nbsp;$time_message
 									</div> 
 									<div id='post-body'>
 										<div class='post-desc'>
