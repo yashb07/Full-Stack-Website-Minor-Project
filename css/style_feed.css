@@ -219,28 +219,49 @@ a {
     color: var(--blue-dark-light);
   }
 
-  .feed-container .add-post .posts_area .status-post .post-content .posted-by a {
+  .feed-container .add-post .posts_area .post-flex .status-post .post-content .posted-by a {
     font-size: 3rem;
     color: var(--blue-dark-light);
     transition: all 0.3s ease;
   }
 
-  .feed-container .add-post .posts_area .status-post .post-content .posted-by a:hover {
+  .feed-container .add-post .posts_area .post-flex .status-post .post-content .posted-by a:hover {
     color: var(--blue-dark);
   }
 
   #post-body .post-desc{
     font-size: 1.5rem;
     font-weight: 400;
+    margin-bottom: 1rem;
   }
 
-  #post-body .post-img img{
+  #post-body .post-img .postedImage img{
     width: 90%;
     height: 90%;
   }
 
-  .post_comment {
-    width: 80%;
+  .newsfeedPostOptions {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-top: 1rem;
+  }
+  .newsfeedPostOptions .postStats {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    margin-bottom: 1rem;
+  }
+  .newsfeedPostOptions .postStats h4 {
+    width: 100%;
+    font-size: 1.4rem;
+    padding: 1rem 2rem;
+    cursor: pointer;
+  }
+  .newsfeedPostOptions .post_comment {
+    width: 90%;
+    height: 400px;
   }
 
   #comment_form {
@@ -319,4 +340,38 @@ a {
   .comment_section .comment-body p {
     font-size: 1.6rem;
     font-weight: 300;
+  }
+  .newsfeedPostOptions {
+    padding: 0px;
+    text-decoration: none;
+    font-size: 1.5rem;
+    color: #026670;
+  }
+  .newsfeedPostOptions iframe{
+    border-radius: 3px;
+    height: 2.5rem;
+    width: 6rem;
+    border: 0;
+    font-size: 14px;
+  }
+  .comment_like{
+    background-color: var(--blue-dark-light);
+    border: none;
+    font-size: 1.4rem;
+    color:var(--white-primary);
+    padding: 1rem 2rem;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  .comment_like:hover {
+    background-color: var(--blue-dark);
+  }
+  .like_value {
+    margin-left: 2rem;
+  }
+  .like_value h4{
+    font-size: 1.4rem;
+    color: var(--blue-dark-light);
+    user-select: none;
   }

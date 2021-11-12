@@ -98,20 +98,28 @@ class Post {
 						
 						<script>
 							function toggle<?php echo $id;?>() {
-								var element = document.getElementById("toggleComment<?php echo $id;?>");
-								if (element.style.display == "block")
-									element.style.display = "none";
-								else
-									element.style.display = "block";
-							}
+								var target = $(event.target);
+								//dont show comments when user clicks on links
+								if (!target.is("a")){
+									var element = document.getElementById("toggleComment<?php echo $id;?>");
+								    if (element.style.display == "block")
+									    element.style.display = "none";
+								    else 
+									    element.style.display = "block";
+								}
+								
+							} 
 						</script>
-
+						
 						<?php
+						$comments_check = mysqli_query($this->con,"SELECT * FROM comments WHERE post_id = '$id'");  
+						$comments_check_num = mysqli_num_rows($comments_check);
+ 
 						//Timeframe
 						$date_time_now = date("Y-m-d H:i:s");
 						$start_date = new DateTime($date_time); //Time of post
 						$end_date = new DateTime($date_time_now); //Current time
-						$interval = $start_date->diff($end_date); //Difference between dates
+						$interval = $start_date->diff($end_date); //Difference between dates  
 						if($interval->y >= 1) {
 							if($interval == 1)
 								$time_message = $interval->y . " year ago"; //1 year ago
@@ -188,22 +196,29 @@ class Post {
 								<div class='post-content'>
 									<div class='posted-by'>
 										<a href='$added_by'> $first_name $last_name </a> $user_to &nbsp;&nbsp;&nbsp;&nbsp;$time_message
-									</div>
+									</div> 
 									<div id='post-body'>
 										<div class='post-desc'>
 											$body
+											<br>
 										</div>
-										<br>
 										<div class='post-img'>
 											$imageDiv
 										</div>
 									</div>
+										<br>
+									<div class = 'newsfeedPostOptions'>
+										<div class='PostStats'>
+											<iframe src='like.php?post_id=$id' scrolling='no' style='width: 100%; height:4rem;'></iframe>
+											<h4>Comments($comments_check_num)</h4>
+										</div>
+										<div class='post_comment' id='toggleComment$id' style='display: none;'>
+											<iframe src='comment_frame.php?post_id=$id' id='comment_iframe'
+											onload='iframeLoaded()' frameborder='0' style='width: 100%; height: 400px;'>
+											</iframe>
+										</div>
+									</div>
 								</div>
-							</div>
-							<div class='post_comment' id='toggleComment$id' style='display: none;'>
-								<iframe src='comment_frame.php?post_id=$id' id='comment_iframe'
-								onload='iframeLoaded()' frameborder='0' style='width: 100%;'>
-								</iframe>
 							</div>
 						</div>";
 					}
