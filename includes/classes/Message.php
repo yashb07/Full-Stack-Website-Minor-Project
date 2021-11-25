@@ -158,13 +158,17 @@ class Message {
 			$split = str_split($latest_message_details[1], 12);
 			$split = $split[0] . $dots; 
 
-			$return_string .= "<a href='messages.php?u=$username'> <div class='user_found_messages'>
-								<img src='" . $user_found_obj->getProfilePic() . "' style='border-radius: 5px; margin-right: 5px;'>
-								" . $user_found_obj->getFirstAndLastName() . "
-								<span class='timestamp_smaller' id='grey'> " . $latest_message_details[2] . "</span>
-								<p id='grey' style='margin: 0;'>" . $latest_message_details[0] . $split . " </p>
-								</div>
-								</a>";
+			$return_string .= "
+			<a href='messages.php?u=$username'>
+				<div class='dropdown-messages'>
+					<img src='" . $user_found_obj->getProfilePic() . "' style='border-radius: 5px; margin-right: 5px;'>
+					" . $user_found_obj->getFirstAndLastName() . "
+					<div class='dropdown-messages-details'>
+						<p>" . $latest_message_details[2] . "</p>
+						<p>" . $latest_message_details[0] . $split . "</p>
+					</div>
+				</div>
+			</a>";
 		}
 
 		return $return_string;
@@ -221,22 +225,29 @@ class Message {
 			$split = str_split($latest_message_details[1], 12);
 			$split = $split[0] . $dots; 
 
-			$return_string .= "<a href='messages.php?u=$username'> 
-								<div class='user_found_messages' style='" . $style . "'>
-								<img src='" . $user_found_obj->getProfilePic() . "' style='border-radius: 5px; margin-right: 5px;'>
-								" . $user_found_obj->getFirstAndLastName() . "
-								<span class='timestamp_smaller' id='grey'> " . $latest_message_details[2] . "</span>
-								<p id='grey' style='margin: 0;'>" . $latest_message_details[0] . $split . " </p>
-								</div>
-								</a>";
+			$return_string .= "
+			<a href='messages.php?u=$username'> 
+				<div class='dropdown' style='" . $style . "'>
+					<img src='" . $user_found_obj->getProfilePic() . "'>
+					<div class='dropdown-details'>
+						<h1>"  . $user_found_obj->getFirstAndLastName() . "</h1>
+						<p>" . $latest_message_details[2] . "</p>
+						<p>" . $latest_message_details[0] . $split . "</p>
+					</div>
+				</div>
+			</a>";
 		}
 
 
 		//If posts were loaded
 		if($count > $limit)
-			$return_string .= "<input type='hidden' class='nextPageDropdownData' value='" . ($page + 1) . "'><input type='hidden' class='noMoreDropdownData' value='false'>";
+			$return_string .= "
+			<input type='hidden' class='nextPageDropdownData' value='" . ($page + 1) . "'>
+			<input type='hidden' class='noMoreDropdownData' value='false'>";
 		else 
-			$return_string .= "<input type='hidden' class='noMoreDropdownData' value='true'> <p style='text-align: center;'>No more messages to load!</p>";
+			$return_string .= "
+			<input type='hidden' class='noMoreDropdownData' value='true'>
+			<p style='text-align: center;'>No more messages to load!</p>";
 
 		return $return_string;
 	}
