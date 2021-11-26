@@ -1,29 +1,14 @@
 <html>
 <head>
 	<title></title>
-	<link rel="stylesheet" type="text/css" href="./css/style_feed.css">
+	<link rel="stylesheet" type="text/css" href="assets/css/style_feed.css">
 </head>
 <body>
-
-	<style type="text/css">
-	* {
-		font-family: Arial, Helvetica, Sans-serif;
-	}
-	body {
-		background-color: #fff;
-	}
-
-	form {
-		position: absolute;
-		top: 0;
-	}
-
-	</style>
-
 	<?php  
 	require 'config/config.php';
 	include("includes/classes/User.php");
 	include("includes/classes/Post.php");
+	include("includes/classes/Notification.php");
 
 	if (isset($_SESSION['username'])) {
 		$userLoggedIn = $_SESSION['username'];
@@ -57,6 +42,10 @@
 		$insert_user = mysqli_query($con, "INSERT INTO likes VALUES('', '$userLoggedIn', '$post_id')");
 
 		//Insert Notification
+		if($user_liked != $userLoggedIn) {
+			$notification = new Notification($con, $userLoggedIn);
+			$notification->insertNotification($post_id, $user_liked, "like");
+		}
 	}
 	//Unlike button
 	if(isset($_POST['unlike_button'])) {
@@ -72,23 +61,29 @@
 	$num_rows = mysqli_num_rows($check_query);
 
 	if($num_rows > 0) {
-		echo '<form action="like.php?post_id=' . $post_id . '" method="POST" style="display: flex; align-items: center; width: 100%;">
-				<input type="submit" class="comment_like" name="unlike_button" value="Unlike">
-				<div class="like_value">
-				<h4>'. $total_likes .' Likes</h4>
+		echo '<form action="like.php?post_id=' . $post_id . '" method="POST" style="height:100%;">
+				<div class="like-container">
+					<input type="submit" class="comment_like" name="unlike_button" value="Unlike">
+					<p>'. $total_likes .' Likes</p>
 				</div>
 			</form>
 		';
 	}
 	else {
-		echo '<form action="like.php?post_id=' . $post_id . '" method="POST" style="display: flex; align-items: center; width: 100%;">
-				<input type="submit" class="comment_like" name="like_button" value="Like">
-				<div class="like_value">
-				<h4>'. $total_likes .' Likes</h4>
+		echo '<form action="like.php?post_id=' . $post_id . '" method="POST">
+				<div class="like-container">
+					<input type="submit" class="comment_like" name="like_button" value="Like">
+					<p>'. $total_likes .' Likes</p>
 				</div>
 			</form>
 		';
 	}
+
+
 	?>
+
+
+
+
 </body>
 </html>

@@ -1,8 +1,23 @@
-<!DOCTYPE html>
-<?php  
+<html>
+<head>
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="assets/css/style_feed.css">
+</head>
+<body>
+
+	<style type="text/css">
+	* {
+		font-size: 12px;
+		font-family: Arial, Helvetica, Sans-serif;
+	}
+
+	</style>
+
+	<?php  
 	require 'config/config.php';
 	include("includes/classes/User.php");
 	include("includes/classes/Post.php");
+	include("includes/classes/Notification.php");
 
 	if (isset($_SESSION['username'])) {
 		$userLoggedIn = $_SESSION['username'];

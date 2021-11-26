@@ -1,13 +1,14 @@
 <?php
-ob_start(); //Turns on output buffering //Sends the PHP code to browser, all at once
+ob_start(); //Turns on output buffering 
 session_start();
 
-$timezone = date_default_timezone_set("Asia/Kolkata"); //Shows how long before post was uploaded
+$timezone = date_default_timezone_set("Europe/London");
 
-$con = mysqli_connect("localhost:3306","root","","social"); //"localhost,username,password,databse_name"
-//changing port number because just local host doesn't work
-if (mysqli_connect_errno()) {
-	echo "Failed to connect: ".mysql_connect_errno(); //returns error code in case of some error
+$con = mysqli_connect("localhost", "root", "", "social"); //Connection variable
+
+if(mysqli_connect_errno()) 
+{
+	echo "Failed to connect: " . mysqli_connect_errno();
 }
 
 ?>
