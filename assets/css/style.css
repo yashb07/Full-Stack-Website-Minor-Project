@@ -124,52 +124,6 @@ textarea:focus {
 	border-radius: 3px;
 }
 
-#comment_form textarea {
-	border-color: #D3D3D3;
-	width: 85%;
-	height: 35px;
-	border-radius: 5px;
-	color: #616060;
-	font-size: 14px;
-	margin: 3px 3px 3px 5px;
-}
-#comment_form input[type="submit"] {
-	border:none;
-	background-color: #20AAE5;
-	color: #156588;
-	border-radius: 5px;
-	width: 13%;
-	height: 35px;
-	margin-top: 3px;
-	position: absolute;
-	font-family: 'Bellota-BoldItalic', sans-serif;
-	text-shadow: #73B6E2 0.5px 0.5px 0px;
-}
-
-.newsfeedPostOptions {
-	padding: 0px;
-	text-decoration: none;
-	color:#20AAE5;
-	border:none;
-}
-
-.newsfeedPostOptions iframe {
-	border: 0px;
-	height: 17px;
-	width: 120px;
-}
-
-.comment_like {
-	background-color: transparent;
-	border: none;
-	font-size: 14px;
-	color: #3498db;
-	padding: 0;
-	height: auto;
-	width: auto;
-	margin: 0;
-}
-
 .like_value {
 	display: inline;
 	font-size: 14px;
@@ -558,6 +512,7 @@ body {
 }
 
 .flex-container {
+  display: flex;
   flex-direction: row;
   justify-content: space-evenly;
   border-radius: 20px;
@@ -571,6 +526,7 @@ body {
     var(--blue-secondary),
     var(--blue-primary)
   );
+  display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
@@ -602,6 +558,7 @@ body {
 .right {
   width: 50%;
   background: #FFF;
+  display: flex;
   flex-direction: column;
   align-items: flex-start;
   justify-content: space-evenly;
@@ -616,6 +573,7 @@ body {
 }
 
 .right .right-btn .btn1 {
+  padding: 0.5rem 1rem;
   background: var(--blue-primary);
   border-radius: 15px 0px 0px 15px;
   transition: all 0.3s ease;
@@ -626,6 +584,7 @@ body {
 }
 
 .right .right-btn .btn2 {
+  padding: 0.5rem 1rem;
   background: var(--blue-secondary);
   border-radius: 0px 15px 15px 0px;
   transition: all 0.3s ease;
@@ -645,6 +604,7 @@ body {
 }
 
 .form {
+  display: flex;
   flex-direction: column;
   align-items: flex-start;
   margin-top: 0rem;
@@ -665,6 +625,7 @@ body {
 
 @media (max-width: 576px) {
   .flex-container {
+	display: flex;
     flex-direction: column-reverse;
     align-items: center;
     width: 100%;

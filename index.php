@@ -50,14 +50,32 @@ if(isset($_POST['post'])){
 
  ?>
 	<div class="feed-container">
-		<div class="user-details-container">
-			<a href="<?php echo $userLoggedIn; ?>">  <img src="<?php echo $user['profile_pic']; ?>"> </a>
-			<div class="user-details">
-				<a href="<?php echo $userLoggedIn; ?>"><?php echo $user['first_name'] . " " . $user['last_name']; ?></a>
-				<br>
-				<?php echo "Posts: " . $user['num_posts']. "<br>";
-					echo "Likes: " . $user['num_likes'];
-				?>
+		<div class="left-container">
+			<div class="user-details-container">
+				<a href="<?php echo $userLoggedIn; ?>">  <img src="<?php echo $user['profile_pic']; ?>"> </a>
+				<div class="user-details">
+					<a href="<?php echo $userLoggedIn; ?>"><?php echo $user['first_name'] . " " . $user['last_name']; ?></a>
+					<?php 
+						echo("<p style='font-size: 1.4rem; margin-bottom: 0.5rem;'> Posts: ".$user['num_posts']."</p>
+						<p style='font-size: 1.4rem;'> Likes: ".$user['num_likes']."</p>");
+					?>
+				</div>
+			</div>
+
+			<div class="user-details-container trending">
+				<h4>Popular</h4>
+				<div class="trends">
+					<?php 
+						$query = mysqli_query($con, "SELECT * FROM trends ORDER BY hits DESC LIMIT 9");
+						foreach ($query as $row) {
+							$word = $row['title'];
+							$word_dot = strlen($word) >= 14 ? "..." : "";
+							$trimmed_word = str_split($word, 14);
+							$trimmed_word = $trimmed_word[0];
+							echo('<p>'.$trimmed_word.$word_dot.'</p>');
+						}
+					?>
+				</div>
 			</div>
 		</div>
 
@@ -66,34 +84,13 @@ if(isset($_POST['post'])){
 				<textarea name="post_text"id="post_text" placeholder="What's on your mind?" maxlength="100"></textarea>
 				<div class="post-btn">
 					<input type="file" name="fileToUpload" id="fileToUpload" value="Select Media" style="display:none;">
-					<label for="fileToUpload" id="mediabut"><i class="bi bi-plus-circle fa-10x"></i></label>
+					<label for="fileToUpload" id="mediabut"><i class="fa fa-image" style="font-size: 28px;"></i></label>
 					<input type="submit" name="post" id="post_button" value="Post">
 				</div>
 				<!-- <button type="submit" name="post" id="post_button">Post</button> -->
 			</form>
 			<div class="posts_area"></div>
 			<img id="loading" src="images/loading.gif">
-		</div>
-	</div>
-
-	<div class="user_details column">
-		<h4>Popular</h4>
-		<div class="trends">
-			<?php 
-			$query = mysqli_query($con, "SELECT * FROM trends ORDER BY hits DESC LIMIT 9");
-			foreach ($query as $row) {
-				
-				$word = $row['title'];
-				$word_dot = strlen($word) >= 14 ? "..." : "";
-
-				$trimmed_word = str_split($word, 14);
-				$trimmed_word = $trimmed_word[0];
-
-				echo "<div style'padding: 1px'>";
-				echo $trimmed_word . $word_dot;
-				echo "<br></div><br>";
-			}
-			?>
 		</div>
 	</div>
 

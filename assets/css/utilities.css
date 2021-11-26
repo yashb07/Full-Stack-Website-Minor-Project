@@ -8,6 +8,7 @@
     border-radius: 20px;
     outline: none;
     text-decoration: none;
+    cursor: pointer;
 }
 
 .submit {

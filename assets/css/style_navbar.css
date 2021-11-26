@@ -134,7 +134,10 @@ nav .search .search_results {
   outline:  none;
   border-bottom: 1px solid var(--blue-dark);
   margin-right: 2rem;
-  padding: 0 1rem;
+  padding: 0 2rem;
+  padding-right: 5rem;
+  color: var(--black-primary) !important;
+  font-weight: 500 !important;
 }
 
 .search form .search-btn {
@@ -147,7 +150,7 @@ nav .search .search_results {
 nav .nav-links {
   display: flex;
   width: 100%;
-  justify-content: space-around;
+  justify-content: flex-end;
   align-items: center;
   padding-right: 4rem;
 }
@@ -158,6 +161,7 @@ nav .nav-links a {
   font-size: 1.8rem;
   font-weight: 400;
   text-decoration: none;
+  margin-right: 2rem;
   color: var(--blue-dark-light);
   transition: all 0.3s ease;
 }
@@ -178,7 +182,7 @@ nav .dropdown_data_window {
   border-top: none;
   width: 25rem;
   position: absolute;
-  right: 40rem;
+  right: 10rem;
   top: 6.5rem;
   overflow-y: auto;
 	z-index: 100;

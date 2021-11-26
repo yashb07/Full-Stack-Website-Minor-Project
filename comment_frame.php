@@ -1,7 +1,7 @@
 <html>
 <head>
 	<title></title>
-	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
+	<link rel="stylesheet" type="text/css" href="assets/css/style_feed.css">
 </head>
 <body>
 
@@ -89,8 +89,8 @@
 	}
 	?>
 	<form action="comment_frame.php?post_id=<?php echo $post_id; ?>" id="comment_form" name="postComment<?php echo $post_id; ?>" method="POST">
-		<textarea name="post_body"></textarea>
-		<input type="submit" name="postComment<?php echo $post_id; ?>" value="Post">
+		<textarea style="resize: none; width: 100%; position: relative" name="post_body"></textarea>
+		<input class="btn btn-submit" type="submit" name="postComment<?php echo $post_id; ?>" value="Post">
 	</form>
 
 	<!-- Load comments -->
@@ -173,14 +173,21 @@
 			}
 
 			$user_obj = new User($con, $posted_by);
-
+			$user_name = $user_obj->getFirstAndLastName();
 
 			?>
-			<div class="comment_section">
-				<a href="<?php echo $posted_by?>" target="_parent"><img src="<?php echo $user_obj->getProfilePic();?>" title="<?php echo $posted_by; ?>" style="float:left;" height="30"></a>
-				<a href="<?php echo $posted_by?>" target="_parent"> <b> <?php echo $user_obj->getFirstAndLastName(); ?> </b></a>
-				&nbsp;&nbsp;&nbsp;&nbsp; <?php echo $time_message . "<br>" . $comment_body; ?> 
-				<hr>
+			<div class = "comment_section">
+				<div class="comment-title">
+					<a href = "<?php echo $posted_by?>" target="__blank"><img src="<?php echo $user_obj->getProfilePic();?>" title="<?php echo $posted_by; ?>" style="float:left;" height="30"></a>
+					<a href = "<?php echo $posted_by?>" target="__blank">
+						<?php echo "<h1>$user_name</h1>" ?>
+					</a>
+				</div>
+				<?php echo
+				"<div class='comment-body'>
+					<p style='width: 70%;'>$comment_body</p>
+					<p>$time_message</p>
+				</div>" ?> 
 			</div>
 			<?php
 

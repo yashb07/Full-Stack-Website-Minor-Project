@@ -1,11 +1,21 @@
 @import "utilities.css";
 @import url("https://fonts.googleapis.com/css2?family=Lato&display=swap");
 @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
-.user_details {
-	width: 250px;
-	float: left;
-	margin-bottom: 20px;
+
+input, input[type="submit"], .btn {
+  padding: 1rem 2rem;
+  border: none;
+  border-radius: 1rem;
+  background-color: var(--blue-dark-light);
+  color: var(--white);
+  font-size: 1.6rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+} input:hover, input[type="submit"]:hover, .btn {
+  background-color: var(--blue-dark);
 }
+
 :root {
   --menu-width: 40em; /* Width of menu */
   --items: 6; /* Number of items you have */
@@ -16,6 +26,7 @@
   --blue-primary: #9fedd7;
   --blue-secondary: #63d5c3;
 
+  --white: #FFF;
   --white-primary: #edeae5;
   --pure: #ffffff;
 
@@ -54,29 +65,33 @@ a {
   text-decoration: none;
 }
 
-.feed-container {
+  .feed-container {
     display: grid;
     grid-template-columns: 1fr 3fr;
     grid-gap: 5rem;
     width: 100%;
     padding: 5rem 0rem;
   }
-  .feed-container .user-details-container {
+
+  .feed-container .left-container {
+    grid-column: 1/2;
+  }
+
+  .feed-container .left-container .user-details-container {
     height: 15rem;
     display: flex;
     justify-content: center;
     align-items: center;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
     border-radius: 2rem;
-    margin-left: 5rem;
     padding: 2rem 3rem;
   }
 
-  .feed-container .user-details-container a img {
+  .feed-container .left-container .user-details-container a img {
     border-radius: 2rem;
   }
 
-  .feed-container .user-details-container .user-details {
+  .feed-container .left-container .user-details-container .user-details {
     display: flex;
     width: 100%;
     flex-direction: column;
@@ -86,15 +101,47 @@ a {
     padding-left: 2rem;
   }
 
-  .feed-container .user-details-container .user-details a {
+  .feed-container .left-container .user-details-container .user-details a {
     color: var(--blue-dark-light);
     font-size: 2rem;
     font-weight: 700;
     margin-bottom: 1rem;
+    line-height: 2.5rem;
+  }
+
+  .user-details p {
+    font-size: 1.4rem;
+  }
+
+  .feed-container .left-container .trending {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 3rem;
+    margin-top: 4rem;
+    height: 15rem;
+  }
+
+  .trending h4 {
+    font-size: 2rem;
+    color: var(--blue-dark-light);
+    user-select: none;
+    transition: all 0.3s ease;
+  } .trending h4:hover {
+    color: var(--blue-dark);
+  } .trending p {
+    font-size: 1.4rem;
+  }
+  
+  .trending .trends {
+    margin-top: 1rem;
+    width: 100%;
+    overflow-y: scroll;
   }
 
   .feed-container .add-post {
-    width: 90%;
+    grid-column: 2 / -1;
+    width: 100%;
     height: 100%;
     padding-right: 2rem;
   }
@@ -128,7 +175,7 @@ a {
 
   .feed-container .add-post .post-form .post-btn {
     position: absolute;
-    right: 10%;
+    right: 5%;
     display: flex;
     align-items: center;
     margin-bottom: -10rem;
@@ -146,17 +193,7 @@ a {
     color: var(--blue-dark);
   }
 
-  .feed-container .add-post .post-form .post-btn input {
-    padding: 1rem 2rem;
-    border: none;
-    border-radius: 1rem;
-    background-color: var(--blue-dark-light);
-    color: var(--white-primary);
-    font-size: 1.6rem;
-    font-weight: 700;
-    cursor: pointer;
-    transition: all 0.3s ease;
-  }
+  .feed-container .add-post .post-form .post-btn
 
   .feed-container .add-post .post-form input:hover {
     background: var(--blue-dark);
@@ -168,7 +205,7 @@ a {
     width: 100%;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start;
     margin-top: 2rem;
   }
   .feed-container .add-post .posts_area hr {
@@ -176,7 +213,7 @@ a {
     color: var(--blue-primary);
   }
   .post-flex {
-    min-width: 70vw;
+    width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -233,6 +270,10 @@ a {
     color: var(--blue-dark);
   }
 
+  #post-body {
+    margin-top: 1rem;
+  }
+
   #post-body .post-desc{
     font-size: 1.5rem;
     font-weight: 400;
@@ -240,8 +281,9 @@ a {
   }
 
   #post-body .post-img .postedImage img{
-    width: 90%;
-    height: 90%;
+    margin-top: 1rem;
+    width: 100%;
+    height: 100%;
   }
 
   .newsfeedPostOptions {
@@ -264,8 +306,21 @@ a {
     cursor: pointer;
   }
   .newsfeedPostOptions .post_comment {
-    width: 90%;
-    height: 400px;
+    width: 100%;
+  }
+
+  .like-container {
+    display: flex;
+    align-items: center;
+  }  
+  .like-container .comment_like {
+    padding: 0.5rem 1.5rem !important;
+    height: auto;
+    width: auto;
+    margin-right: 1rem;
+  }
+  .like-container p {
+    font-size: 1.4rem;
   }
 
   #comment_form {
@@ -278,8 +333,8 @@ a {
     width: 80%;
     padding: 1rem 2rem;
     border-radius: 0.5rem;
-    color: #616060;
-    font-size: 1.8rem;
+    color: var(--black-primary);
+    font-size: 1.4rem;
     border: 1px solid var(--blue-dark-light);
   }
   #comment_form textarea:focus {
@@ -287,18 +342,9 @@ a {
     border: 1px solid var(--blue-dark);
     box-shadow: 0;
   }
-  #comment_form input[type="submit"] {
-    padding: 1rem 2rem;
-    border: 0;
-    font-size: 1.8rem;
-    background-color: var(--blue-dark-light);
-    color: var(--pure);
-    border-radius: 0.5rem;
-    cursor: pointer;
-    transition: all 0.3s ease;
-  }
-  #comment_form input[type="submit"]:hover {
-    background-color: var(--blue-dark);
+  #comment_form .btn-submit {
+    position: absolute;
+    right: 1rem;
   }
 
   .comment_section {
@@ -306,7 +352,6 @@ a {
     grid-template-columns: repeat(1, 1fr);
     align-items: center;
     width: 100%;
-    height: 100%;
     margin: 1rem 0;
     border-bottom: 1px solid var(--blue-dark);
   }
@@ -328,7 +373,8 @@ a {
     color: var(--blue-dark);
   }
   .comment_section .comment-title a h1 {
-    font-size: 2.5rem;
+    font-size: 2rem;
+    font-weight: 500;
   }
   .comment_section .comment-title img {
     width: 100%;
@@ -342,13 +388,13 @@ a {
     margin: 1rem 0;
   }
   .comment_section .comment-body p {
-    font-size: 1.6rem;
+    font-size: 1.4rem;
     font-weight: 300;
   }
   .newsfeedPostOptions {
     padding: 0px;
     text-decoration: none;
-    font-size: 1.5rem;
+    font-size: 1.4rem;
     color: #026670;
   }
   .newsfeedPostOptions iframe{
@@ -362,7 +408,7 @@ a {
     background-color: var(--blue-dark-light);
     border: none;
     font-size: 1.4rem;
-    color:var(--white-primary);
+    color:var(--white);
     padding: 1rem 2rem;
     border-radius: 0.5rem;
     cursor: pointer;
