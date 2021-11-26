@@ -29,23 +29,20 @@ body {
 	z-index: -1;
 	color: #555;
 }
-
-.user_details {
-	width: 250px;
-	float: left;
-	margin-bottom: 20px;
+.single-post-container {
+	display: grid;
+	grid-template-columns: 1fr 3fr;
+	align-items: center;
 }
-
-.user_details img {
-	height: 120px;
-	border-radius: 5px;
-	margin-right: 5px;
-}
-
-.user_details_left_right {
-	width: 120px;
-	display: inline-table;
-	position: absolute;
+.single-post-container .user-details-container {
+	height: 15rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    border-radius: 2rem;
+    margin-left: 5rem;
+    padding: 2rem 3rem;
 }
 
 .main_column {
