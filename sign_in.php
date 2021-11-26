@@ -24,7 +24,7 @@ require 'includes/form_handlers/login_handler.php';
             <div class="left-logo">
                 <img src="./images/logoMain.png" alt="Logo" class="logo">
             </div>
-            <h1 class="title">Welcome to Connectify!</h1>
+            <h1 class="title">Welcome to  Connectify!</h1>
             <h4>Connect with your friends and share<br>by joining our community now!</h4>
             <img src="./images/login_logo.png" alt="Rocket Image" class="rocket">
         </div>
