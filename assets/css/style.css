@@ -49,11 +49,88 @@ body {
 }
 
 .main_column {
-	float:right;
-	width: 70%;
-	z-index: -1;
-	min-height: 170px;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	padding: 5rem;
+} .main_column h4 {
+	font-size: 1.8rem;
+	color: var(--blue-dark);
+} .main_column p {
+	font-size: 1.4rem;
+	color: var(--blue-dark);
 }
+
+.main_column .requests-container {
+	display: flex;
+	flex-direction: column;
+	margin-top: 2rem;
+}
+
+.main_column .profile-img-container {
+	display: flex;
+	align-items: center;
+	margin-top: 1rem;
+} .profile-img-container img {
+	border-radius: 50%;
+}
+.profile-img-container a {
+	color: var(--blue-dark-light) !important;
+	font-size: 1.4rem;
+	transition: all 0.3s ease;
+} .profile-img-container a:hover {
+	color: var(--blue-dark) !important;
+}
+
+.main_column .profile-update-container {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	width: 80%;
+	margin-top: 2rem;
+}
+.profile-details-container h4 {
+	margin-bottom: 1rem;
+} 
+.profile-details-container .profile-details-row {
+	display: flex;
+	align-items: center;
+	margin-bottom: 1rem;
+} .profile-details-row p {
+	margin-right: 2rem;
+} .profile-details-row input {
+	background-color: transparent !important;
+	color: var(--black-primary);
+	font-weight: 500;
+}
+
+.main_column .profile-remove {
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin-top: 3rem;
+} .profile-remove h4 {
+	margin-right: 2rem;
+}
+
+#profile-img-upload p, #profile-img-upload form h1 {
+	font-size: 1.4rem;
+	margin-bottom: 1rem;
+}
+
+#CroppingContainer {
+	width:800px;
+	max-height:600px;
+	background-color:#FFF;
+	margin-left: -200px;
+	position:relative;
+	overflow:hidden;
+	border:2px #666 solid;
+	z-index:2001;
+	padding-bottom:0px;
+}
+
 
 .post_form {
 	width: 100%;
@@ -380,12 +457,10 @@ textarea:focus {
 }
 
 #settings_input {
-	border: 1px solid #ccc;
-    height: 20px;
+	border: 1px solid var(--blue-dark-light);
     padding: 4px 6px;
-    margin-bottom: 10px;
     border-radius: 4px;
-    font-size: 14px;
+    font-size: 1.4rem;
     line-height: 20px;
 }
 
