@@ -12,7 +12,7 @@ input, input[type="submit"], .btn {
   font-weight: 700;
   cursor: pointer;
   transition: all 0.3s ease;
-} input:hover, input[type="submit"]:hover, .btn {
+} input:hover, input[type="submit"]:hover, .btn:hover {
   background-color: var(--blue-dark);
 }
 
