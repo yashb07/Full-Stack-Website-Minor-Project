@@ -6,7 +6,9 @@
 	font-family: 'Bellota-BoldItalic';
 	src: url('../fonts/Bellota-BoldItalic.otf');
 }
-
+a {
+	font-size: 1.4rem;
+}
 body {
 	line-height: 17px;
 }
@@ -28,25 +30,40 @@ body {
 	box-shadow: 2px 2px 1px #D3D3D3;
 	z-index: -1;
 	color: #555;
+	display: flex;
+	align-items: center;
 }
-
-.user_details {
-	width: 250px;
-	float: left;
-	margin-bottom: 20px;
+.single-post-container {
+	display: grid;
+	grid-template-columns: 1fr 3fr;
+	align-items: center;
 }
-
-.user_details img {
-	height: 120px;
-	border-radius: 5px;
-	margin-right: 5px;
+.single-post-container .user-details-container {
+	height: 15rem;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+	border-radius: 2rem;
+	padding: 2rem 3rem;
+} .single-post-container .user-details-container a img {
+	border-radius: 2rem;
+} .single-post-container .user-details-container .user-details {
+	display: flex;
+	width: 100%;
+	flex-direction: column;
+	justify-content: center;
+	align-items: flex-start;
+	font-size: 1.6rem;
+	padding-left: 2rem;
 }
-
-.user_details_left_right {
-	width: 120px;
-	display: inline-table;
-	position: absolute;
-}
+.user-details-container .user-details a {
+    color: var(--blue-dark-light);
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    line-height: 2.5rem;
+  }
 
 .main_column {
 	display: flex;
@@ -65,6 +82,10 @@ body {
 	display: flex;
 	flex-direction: column;
 	margin-top: 2rem;
+} .requests-container p {
+	font-size: 1.6rem;
+} .requests-container form {
+	margin-top: 1rem;
 }
 
 .main_column .profile-img-container {
@@ -131,50 +152,16 @@ body {
 	padding-bottom:0px;
 }
 
-
-.post_form {
-	width: 100%;
-}
-
-.post_form textarea {
-	width: 81%;
-	height: 60px;
-	border-radius: 3px;
-	margin-right: 5px;
-	border: 1px solid #D3D3D3;
-	font-size: 12px;
-	padding: 5px;
-}
-
-textarea:focus {
-	outline: 0;
-}
-
-.post_form input[type="submit"] {
-	width: 11%;
-	height: 60px;
-	border: none;
-	border-radius: 3px;
-	background-color: #3498db;
-	font-family: 'Bellota-BoldItalic', sans-serif;
-	color: #1E75CA;
-	text-shadow: #73B6E2 0.5px 0.5px 0px;
-	font-size: 90%;
-	position: absolute;
-	outline: 0;
-	margin: 0;
-}
-
-.post_form input[type="submit"]:active {
-	padding: 5px 4px 4px 5px;
-}
-
 .status_post {
-	width: 96%;
-	font-size: 15px;
-	padding: 0px 5px;
-	min-height: 75px;
-	cursor:pointer;
+	width: 100%;
+    box-sizing: border-box;
+    display: flex;
+    align-items: flex-start;
+    font-size: 3rem;
+    font-weight: 900;
+    padding: 1rem 0rem;
+    min-height: 3rem;
+	flex-direction: column;
 }
 
 .post_profile_pic {
@@ -206,38 +193,73 @@ textarea:focus {
 	font-size: 14px;
 }
 
-.profile_left {
-	top: -10px;
-	width: 17%;
-	max-width: 240px;
-	min-width: 130px;
-	height: 100%;
-	float: left;
-	position: relative;
-	background-color: #37B0E9;
-	border-right: 10px solid #83D6FE;
-	color: #CBEAF8;
-	margin-right: 20px;
+.profile-page-container {
+	/* display: grid; */
+	grid-template-columns: 1fr 3fr;
+	grid-template-rows: 1fr 5fr;
+	grid-gap: 2rem;
+	padding: 2rem;
 }
 
-.profile_left img {
-	min-width: 80px;
-	width: 55%;
-	margin: 20px;
-	border: 5px solid #83D6FE;
-	border-radius: 100px;
+.profile_left {
+	width: 100%;
+	/* height: 250px; */
+	position: relative;
+	border: 1px solid var(--blue-dark);
+	color: var(--blue-dark);
+	grid-row: 1 / 2;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+.profile_details {
+	width: 100%;
+	display: flex;
+	align-items: center;
+}
+.profile_details img {
+	margin: 2rem;
+	width: 25%;
+	border: 3px solid var(--blue-dark-light);
+	border-radius: 50%;
+	transition: all 0.3s ease;
+} .profile_details img:hover {
+	border: 3px solid var(--blue-dark);
+}
+
+.profile_left input[type="submit"] {
+	width: 100%;
+	border-radius: 5px;
+	border: none;
+	color: #fff;
+	margin: 0.5rem;
 }
 
 .profile_info {
-	display: list-item;
-	background-color: #2980b9;
+	display: flex;
+	align-items: flex-start;
+	flex-direction: column;
 	width: 100%;
-	padding: 10px 0 10px 0;
 }
 
 .profile_info p {
-	margin: 0 0 0 20px;
-	word-wrap: break-word;
+	font-size: 1.8rem;
+	margin: 0.5rem;
+}
+
+.profile_btn {
+	display: flex;
+	align-items: center;
+}
+.profile_btn form {
+	margin: 0.5rem;
+}
+
+.profile_info_bottom {
+	margin: 1rem 0;
+}
+.profile_info_bottom p {
+	font-size: 1.8rem;
 }
 
 .danger {
@@ -259,18 +281,7 @@ textarea:focus {
 	background-color: #0043f0;
 }
 
-.profile_left input[type="submit"] {
-	width: 90%;
-	height: 30px;
-	border-radius: 5px;
-	margin: 7px 0 0 7px;
-	border: none;
-	color: #fff;
-}
-
 #accept_button {
-	width: 20%;
-	height: 28px;
 	border-radius: 5px;
 	margin: 5px;
 	border: none;
@@ -278,8 +289,6 @@ textarea:focus {
 	background-color: #2ecc71;
 }
 #ignore_button {
-	width: 20%;
-	height: 28px;
 	border-radius: 5px;
 	margin: 5px;
 	border: none;
@@ -297,38 +306,56 @@ textarea:focus {
 	position: relative;
 }
 
-.profile_main_column {
-	min-width: 675px;
-	float: left;
-	width: 70%;
-	z-index: -1;
 
+#post_form {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+} #post_form .post_header h4 {
+	color: var(--blue-dark);
+	font-size: 1.8rem;
+} #post_form .post-body {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	margin: 1rem 0;
+} .post-body p {
+	font-size: 1.4rem;
+	margin: 1rem 0;
+} .post-body form {
+	width: 100%;
 }
 
-.profile_info_bottom {
-	margin: 10 0 0 7px;
-
-}
-
-#message_textarea {
-	width: 80%;
-	margin-right: 8px;
-	border-radius: 5px;
+#post_form textarea {
+	resize: none;
+	width: 100%;
+	height: 10rem;
+	border-radius: 0.5rem;
+	margin-right: 0.5rem;
 	border: 1px solid #D3D3D3;
-	font-size: 12px;
+	font-size: 1.2rem;
+	padding: 1rem;
+} #post_form .post_user_footer {
+	display: flex;
+	align-items: center;
+} .post_user_footer button:nth-child(1) {
+	margin-right: 1rem;
 }
-#message_submit {
-	height: 41px;
-	width: 120px;
-	margin: 0;
-	position: absolute;
-	border:none;
-	background-color: #20AAE5;
-	color: #156588;
-	border-radius: 5px;
-	font-family: 'Bellota-BoldItalic', sans-serif;
-	text-shadow: #73B6E2 0.5px 0.5px 0px;
+
+textarea:focus {
+	outline: 0;
 }
+
+.profile_main_column {
+	width: 100%;
+	grid-row: 1 / -1;
+} .profile_main_column .tab-content h4{
+	font-size: 1.4rem;
+	color: var(--blue-dark);
+}
+
 .message {
 	border: 1px solid #000;
 	border-radius: 5px;
@@ -349,18 +376,34 @@ textarea:focus {
 	float: left;
 	margin-bottom: 5px;
 }
-
-.loaded_messages {
-	height: 65%;
-	min-height: 300px;
-	max-height: 400px;
-	overflow: scroll;
-	margin-bottom: 10px;
+#conversations {
+	flex-direction: column;
+	align-items: flex-start;
+} #conversations h4 {
+	font-size: 1.8rem;
+	color: var(--blue-dark);
+	margin: 1rem 0;
+}
+.loaded_conversations {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	width: 100%;
+	max-height: 216px;
+	overflow-y: auto;
+} .loaded_conversations a {
+	width: 100%;
+	margin: 1rem 0;
+} .loaded_conversations .dropdown-messages {
+	display: flex;
+	align-items: center;
+} .dropdown-messages-details p:nth-child(1) {
+	font-size: 1.6rem;
+	color: var(--blue-dark);
 }
 
-.loaded_conversations {
-	max-height: 216px;
-	overflow: scroll;
+.loaded_conversations p {
+	font-size: 1.4rem;
 }
 
 #grey {
@@ -369,6 +412,51 @@ textarea:focus {
 
 .tab-content {
 	margin-top: 25px;
+	width: 100%;
+} #messages_div {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	margin: 1rem 0;
+} #messages_div h4 {
+	font-size: 1.8rem;
+	color: var(--blue-dark);
+	padding: 1rem 0;
+	border-bottom: 1px solid var(--blue-dark);
+} #messages_div a {
+	font-size: 1.8rem;
+} #scroll_messages {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	margin: 1rem 0;
+	height: 65%;
+	min-height: 300px;
+	max-height: 400px;
+	overflow-y: auto;
+	border-bottom: 1px solid var(--blue-dark);
+} #green, #blue {
+	font-size: 1.4rem;
+} .message_post {
+	display: flex;
+	align-items: center;
+	width: 100%;
+	padding: 1rem 0;
+	border-bottom: 1px solid var(--blue-dark);
+} .message_post form {
+	width: 100%;
+	display: flex;
+	align-items: center;
+} #message_textarea {
+	resize: none;
+	width: 80%;
+	margin-right: 1rem;
+	border-radius: 0.5rem;
+	border: 1px solid #D3D3D3;
+	font-size: 1.2rem;
+	padding: 1rem;
 }
 
 .notification_badge {
@@ -383,8 +471,7 @@ textarea:focus {
 	background-color: #F00;
 	border-radius: 10px;
 	position: absolute;
-	left: 8px;
-	top: -5px;
+	top: 45px;
 }
 
 .resultDisplayNotification {

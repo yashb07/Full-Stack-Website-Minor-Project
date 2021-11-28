@@ -20,16 +20,8 @@ include("includes/form_handlers/settings_handler.php");
 		$email = $row['email'];
 		?>
 		<div class="profile-details-container">
-			<h4>Update Details</h4>
+			<h4>Update Email</h4>
 			<form action="settings.php" method="POST">
-				<div class="profile-details-row">
-					<p>First Name: </p>
-					<input type="text" name="first_name" value="<?php echo $first_name; ?>" id="settings_input">
-				</div>
-				<div class="profile-details-row">
-					<p>Last Name: </p>
-					<input type="text" name="last_name" value="<?php echo $last_name; ?>" id="settings_input">
-				</div>
 				<div class="profile-details-row">
 					<p>Email: </p>
 					<input type="text" name="email" value="<?php echo $email; ?>" id="settings_input">

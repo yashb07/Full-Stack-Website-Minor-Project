@@ -51,7 +51,7 @@ class Message {
 
 			$div_top = ($user_to == $userLoggedIn) ? "<div class='message' id='green'>" : "<div class='message' id='blue'>";
 			$button = "<span class='deleteButton' onclick='deleteMessage($id, this)'>X</span>";
-			$data = $data . $div_top . $button . $body . "</div><br><br>";
+			$data = "<p>" . $data . $div_top . $button . $body . "</p></div>";
 		}
 		return $data;
 	}
@@ -161,9 +161,9 @@ class Message {
 			$return_string .= "
 			<a href='messages.php?u=$username'>
 				<div class='dropdown-messages'>
-					<img src='" . $user_found_obj->getProfilePic() . "' style='border-radius: 5px; margin-right: 5px;'>
-					" . $user_found_obj->getFirstAndLastName() . "
+					<img src='" . $user_found_obj->getProfilePic() . "' style='border-radius: 1rem; margin-right: 5px;'>
 					<div class='dropdown-messages-details'>
+						<p>" . $user_found_obj->getFirstAndLastName() ."</p>
 						<p>" . $latest_message_details[2] . "</p>
 						<p>" . $latest_message_details[0] . $split . "</p>
 					</div>
