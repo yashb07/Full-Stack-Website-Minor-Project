@@ -6,7 +6,9 @@
 	font-family: 'Bellota-BoldItalic';
 	src: url('../fonts/Bellota-BoldItalic.otf');
 }
-
+a {
+	font-size: 1.4rem;
+}
 body {
 	line-height: 17px;
 }
@@ -28,6 +30,8 @@ body {
 	box-shadow: 2px 2px 1px #D3D3D3;
 	z-index: -1;
 	color: #555;
+	display: flex;
+	align-items: center;
 }
 .single-post-container {
 	display: grid;
@@ -372,10 +376,34 @@ textarea:focus {
 	float: left;
 	margin-bottom: 5px;
 }
-
+#conversations {
+	flex-direction: column;
+	align-items: flex-start;
+} #conversations h4 {
+	font-size: 1.8rem;
+	color: var(--blue-dark);
+	margin: 1rem 0;
+}
 .loaded_conversations {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	width: 100%;
 	max-height: 216px;
-	overflow: scroll;
+	overflow-y: auto;
+} .loaded_conversations a {
+	width: 100%;
+	margin: 1rem 0;
+} .loaded_conversations .dropdown-messages {
+	display: flex;
+	align-items: center;
+} .dropdown-messages-details p:nth-child(1) {
+	font-size: 1.6rem;
+	color: var(--blue-dark);
+}
+
+.loaded_conversations p {
+	font-size: 1.4rem;
 }
 
 #grey {
@@ -384,6 +412,7 @@ textarea:focus {
 
 .tab-content {
 	margin-top: 25px;
+	width: 100%;
 } #messages_div {
 	width: 100%;
 	display: flex;

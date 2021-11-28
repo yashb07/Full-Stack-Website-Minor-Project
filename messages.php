@@ -33,12 +33,11 @@ if(isset($_POST['post_message'])) {
 			<a href="<?php echo $userLoggedIn; ?>">
 			<?php 
 			echo $user['first_name'] . " " . $user['last_name'];
-
 			 ?>
 			</a>
 			<br>
-			<?php echo "Posts: " . $user['num_posts']. "<br>"; 
-			echo "Likes: " . $user['num_likes'];
+			<?php echo "<p>Posts: " . $user['num_posts']. "</p>"; 
+			echo "<p>Likes: " . $user['num_likes'] . "</p>";
 
 			?>
 		</div>

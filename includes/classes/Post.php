@@ -729,9 +729,6 @@ class Post {
 									$body
 									<br>
 								</div>
-								<div class='post-img'>
-									$imageDiv
-								</div>
 							</div>
 								<br>
 							<div class = 'newsfeedPostOptions'>
