@@ -51,7 +51,7 @@ class Message {
 
 			$div_top = ($user_to == $userLoggedIn) ? "<div class='message' id='green'>" : "<div class='message' id='blue'>";
 			$button = "<span class='deleteButton' onclick='deleteMessage($id, this)'>X</span>";
-			$data = $data . $div_top . $button . $body . "</div><br><br>";
+			$data = "<p>" . $data . $div_top . $button . $body . "</p></div>";
 		}
 		return $data;
 	}

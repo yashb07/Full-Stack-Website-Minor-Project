@@ -83,13 +83,8 @@
     </div>
 
     <div class="profile_main_column column">
-
-      <ul class="nav nav-tabs" role="tablist" id="profileTabs">
-        <li role="presentation" class="active"><a href="#newsfeed_div" aria-controls="newsfeed_div" role="tab" data-toggle="tab">Newsfeed</a></li>
-        <li role="presentation"><a href="#messages_div" aria-controls="messages_div" role="tab" data-toggle="tab">Messages</a></li>
-      </ul>
-
       <div class="tab-content">
+        <h4>Messages</h4>
         <div role="tabpanel" class="tab-pane" id="messages_div">
             <?php  
               echo "<h4>You and <a href='" . $username ."'>" . $profile_user_obj->getFirstAndLastName() . "</a></h4>";
@@ -99,8 +94,8 @@
             ?>
             <div class="message_post">
               <form action="" method="POST">
-                  <textarea name='message_body' id='message_textarea' placeholder='Write your message ...'></textarea>
-                  <input type='submit' name='post_message' class='info' id='message_submit' value='Send'>
+                  <textarea name='message_body' id='message_textarea' placeholder='Write your message..'></textarea>
+                  <input type='submit' name='post_message' class='btn' value='Send'>
               </form>
             </div>
             <script>
@@ -111,6 +106,7 @@
             </script>
           </div>
 
+          <h4>Newsfeed</h4>
           <div role="tabpanel" class="tab-pane active" id="newsfeed_div">
             <div class="posts_area"></div>
             <img id="loading" src="assets/images/icons/loading.gif">

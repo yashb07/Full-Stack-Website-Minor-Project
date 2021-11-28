@@ -149,11 +149,15 @@ body {
 }
 
 .status_post {
-	width: 96%;
-	font-size: 15px;
-	padding: 0px 5px;
-	min-height: 75px;
-	cursor:pointer;
+	width: 100%;
+    box-sizing: border-box;
+    display: flex;
+    align-items: flex-start;
+    font-size: 3rem;
+    font-weight: 900;
+    padding: 1rem 0rem;
+    min-height: 3rem;
+	flex-direction: column;
 }
 
 .post_profile_pic {
@@ -186,7 +190,7 @@ body {
 }
 
 .profile-page-container {
-	display: grid;
+	/* display: grid; */
 	grid-template-columns: 1fr 3fr;
 	grid-template-rows: 1fr 5fr;
 	grid-gap: 2rem;
@@ -211,7 +215,7 @@ body {
 }
 .profile_details img {
 	margin: 2rem;
-	width: 50%;
+	width: 25%;
 	border: 3px solid var(--blue-dark-light);
 	border-radius: 50%;
 	transition: all 0.3s ease;
@@ -343,27 +347,11 @@ textarea:focus {
 .profile_main_column {
 	width: 100%;
 	grid-row: 1 / -1;
+} .profile_main_column .tab-content h4{
+	font-size: 1.4rem;
+	color: var(--blue-dark);
 }
 
-#message_textarea {
-	width: 80%;
-	margin-right: 8px;
-	border-radius: 5px;
-	border: 1px solid #D3D3D3;
-	font-size: 12px;
-}
-#message_submit {
-	height: 41px;
-	width: 120px;
-	margin: 0;
-	position: absolute;
-	border:none;
-	background-color: #20AAE5;
-	color: #156588;
-	border-radius: 5px;
-	font-family: 'Bellota-BoldItalic', sans-serif;
-	text-shadow: #73B6E2 0.5px 0.5px 0px;
-}
 .message {
 	border: 1px solid #000;
 	border-radius: 5px;
@@ -385,14 +373,6 @@ textarea:focus {
 	margin-bottom: 5px;
 }
 
-.loaded_messages {
-	height: 65%;
-	min-height: 300px;
-	max-height: 400px;
-	overflow: scroll;
-	margin-bottom: 10px;
-}
-
 .loaded_conversations {
 	max-height: 216px;
 	overflow: scroll;
@@ -409,6 +389,7 @@ textarea:focus {
 	display: flex;
 	flex-direction: column;
 	align-items: flex-start;
+	margin: 1rem 0;
 } #messages_div h4 {
 	font-size: 1.8rem;
 	color: var(--blue-dark);
@@ -418,6 +399,35 @@ textarea:focus {
 	font-size: 1.8rem;
 } #scroll_messages {
 	width: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	margin: 1rem 0;
+	height: 65%;
+	min-height: 300px;
+	max-height: 400px;
+	overflow-y: auto;
+	border-bottom: 1px solid var(--blue-dark);
+} #green, #blue {
+	font-size: 1.4rem;
+} .message_post {
+	display: flex;
+	align-items: center;
+	width: 100%;
+	padding: 1rem 0;
+	border-bottom: 1px solid var(--blue-dark);
+} .message_post form {
+	width: 100%;
+	display: flex;
+	align-items: center;
+} #message_textarea {
+	resize: none;
+	width: 80%;
+	margin-right: 1rem;
+	border-radius: 0.5rem;
+	border: 1px solid #D3D3D3;
+	font-size: 1.2rem;
+	padding: 1rem;
 }
 
 .notification_badge {
