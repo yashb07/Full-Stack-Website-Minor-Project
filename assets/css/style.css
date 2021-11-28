@@ -22,7 +22,7 @@ body {
 }
 
 a {
-  color: #20aae5;
+  color: var(--blue-dark);
   text-decoration: none;
 }
 
@@ -201,21 +201,21 @@ textarea:focus {
 }
 #comment_form input[type="submit"] {
   border: none;
-  background-color: #20aae5;
-  color: #156588;
+  background-color: var(--blue-secondary);
+  color: var(--black-primary);
   border-radius: 5px;
   width: 13%;
   height: 35px;
   margin-top: 3px;
   position: absolute;
   font-family: "Poppins", sans-serif;
-  text-shadow: #73b6e2 0.5px 0.5px 0px;
+  /* text-shadow: #73b6e2 0.5px 0.5px 0px; */
 }
 
 .newsfeedPostOptions {
   padding: 0px;
   text-decoration: none;
-  color: #20aae5;
+  color: var(--blue-dark);
   border: none;
 }
 
@@ -229,7 +229,7 @@ textarea:focus {
   background-color: transparent;
   border: none;
   font-size: 14px;
-  color: #3498db;
+  color: var(--blue-dark);
   padding: 0;
   height: auto;
   width: auto;
@@ -249,8 +249,8 @@ textarea:focus {
   height: 100%;
   float: left;
   position: relative;
-  background-color: #37b0e9;
-  border-right: 10px solid #83d6fe;
+  background-color: var(--blue-secondary);
+  border-right: 10px solid var(--blue-dark);
   color: #cbeaf8;
   margin-right: 20px;
 }
@@ -259,13 +259,13 @@ textarea:focus {
   min-width: 80px;
   width: 55%;
   margin: 20px;
-  border: 5px solid #83d6fe;
+  border: 5px solid var(--blue-dark);
   border-radius: 100px;
 }
 
 .profile_info {
   display: list-item;
-  background-color: #2980b9;
+  background-color: var(--blue-secondary);
   width: 100%;
   padding: 10px 0 10px 0;
 }
@@ -356,29 +356,28 @@ textarea:focus {
   margin: 0;
   position: absolute;
   border: none;
-  background-color: #20aae5;
-  color: #156588;
+  font-weight: bolder;
+  background-color: var(--blue-secondary);
+  color: var(--black-primary);
   border-radius: 5px;
   font-family: "Poppins", sans-serif;
-  text-shadow: #73b6e2 0.5px 0.5px 0px;
 }
 .message {
-  border: 1px solid #000;
   border-radius: 5px;
   padding: 5px 10px;
   display: inline-block;
-  color: #fff;
+  color: var(--black-primary);
 }
 
 .message#blue {
-  background-color: #3498db;
-  border-color: #2980b9;
+  background-color: var(--blue-secondary);
+  border-color: (var(--blue-secondary));
   float: right;
   margin-bottom: 5px;
 }
 .message#green {
-  background-color: #2ecc71;
-  border-color: #27ae60;
+  background-color: var(--blue-secondary);
+  border-color: var(--blue-secondary);
   float: left;
   margin-bottom: 5px;
 }
@@ -468,7 +467,7 @@ textarea:focus {
   text-align: center;
   white-space: nowrap;
   vertical-align: baseline;
-  background-color: #f00;
+  background-color: var(--blue-dark-light);
   border-radius: 10px;
   position: absolute;
   left: 8px;
