@@ -1,5 +1,11 @@
 $(document).ready(function() {
 
+	$('#search_text_input').focus(function() {
+		if(window.matchMedia( "(min-width: 800px)" ).matches) {
+			$(this).animate({width: '250px'}, 500);
+		}
+	});
+
 	$('.button_holder').on('click', function() {
 		document.search_form.submit();
 	})
@@ -81,7 +87,7 @@ function getDropdownData(user, type) {
 
 			success: function(response) {
 				$(".dropdown_data_window").html(response);
-				$(".dropdown_data_window").css({"padding" : "0px", "height": "100px", "border" : "1px solid #DADADA"});
+				$(".dropdown_data_window").css({"padding" : "0px", "height": "280px", "border" : "1px solid #DADADA"});
 				$("#dropdown_data_type").val(type);
 			}
 

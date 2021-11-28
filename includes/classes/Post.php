@@ -153,6 +153,7 @@ class Post {
 
 		if(mysqli_num_rows($data_query) > 0) {
 
+
 			$num_iterations = 0; //Number of results checked (not necasserily posted)
 			$count = 1;
 
@@ -302,40 +303,33 @@ class Post {
 						$imageDiv = "";
 					}
 
-					$str .= "
-						<div class='post-flex'>
-							<div class='status-post' onClick='javascript:toggle$id()'>
-								<div class='post-profile-pic'>
-									<img src='$profile_pic'>
+					$str .= "<div class='status_post' onClick='javascript:toggle$id()'>
+								<div class='post_profile_pic'>
+									<img src='$profile_pic' width='50'>
 								</div>
-								<div class='post-content'>
-									<div class='posted-by'>
-										<a href='$added_by'> $first_name $last_name </a> $user_to &nbsp;&nbsp;&nbsp;&nbsp;$time_message
-									</div> 
-									<div id='post-body'>
-										<div class='post-desc'>
-											$body
-											<br>
-										</div>
-										<div class='post-img'>
-											$imageDiv
-										</div>
-									</div>
-										<br>
-									<div class = 'newsfeedPostOptions'>
-										<div class='PostStats'>
-											<iframe src='like.php?post_id=$id' scrolling='no' style='width: 100%; height:4rem;'></iframe>
-											<h4>Comments($comments_check_num)</h4>
-										</div>
-										<div class='post_comment' id='toggleComment$id' style='display: none;'>
-											<iframe src='comment_frame.php?post_id=$id' id='comment_iframe'
-											onload='iframeLoaded()' frameborder='0' style='width: 100%; height: 100%;'>
-											</iframe>
-										</div>
-									</div>
+
+								<div class='posted_by' style='color:#ACACAC;'>
+									<a href='$added_by'> $first_name $last_name </a> $user_to &nbsp;&nbsp;&nbsp;&nbsp;$time_message
+									$delete_button
 								</div>
+								<div id='post_body'>
+									$body
+									<br>
+									$imageDiv
+									<br>
+									<br>
+								</div>
+
+								<div class='newsfeedPostOptions'>
+									Comments($comments_check_num)&nbsp;&nbsp;&nbsp;
+									<iframe src='like.php?post_id=$id' scrolling='no'></iframe>
+								</div>
+
 							</div>
-						</div>";
+							<div class='post_comment' id='toggleComment$id' style='display:none;'>
+								<iframe src='comment_frame.php?post_id=$id' id='comment_iframe' frameborder='0'></iframe>
+							</div>
+							<hr>";
 				}
 
 				?>
@@ -569,7 +563,10 @@ class Post {
 			else 
 				$str .= "<input type='hidden' class='noMorePosts' value='true'><p style='text-align: centre;' class='noMorePostsText'> No more posts to show! </p>";
 		}
+
 		echo $str;
+
+
 	}
 
 	public function getSinglePost($post_id) {
@@ -711,36 +708,32 @@ class Post {
 						}
 					}
 
-					$str .= "<div class='post-flex'>
-					<div class='status-post' onClick='javascript:toggle$id()'>
-						<div class='post-profile-pic'>
-							<img src='$profile_pic'>
-						</div>
-						<div class='post-content'>
-							<div class='posted-by'>
-								<a href='$added_by'> $first_name $last_name </a> $user_to &nbsp;&nbsp;&nbsp;&nbsp;$time_message
-							</div> 
-							<div id='post-body'>
-								<div class='post-desc'>
+					$str .= "<div class='status_post' onClick='javascript:toggle$id()'>
+								<div class='post_profile_pic'>
+									<img src='$profile_pic' width='50'>
+								</div>
+
+								<div class='posted_by' style='color:#ACACAC;'>
+									<a href='$added_by'> $first_name $last_name </a> $user_to &nbsp;&nbsp;&nbsp;&nbsp;$time_message
+									$delete_button
+								</div>
+								<div id='post_body'>
 									$body
 									<br>
+									<br>
+									<br>
 								</div>
+
+								<div class='newsfeedPostOptions'>
+									Comments($comments_check_num)&nbsp;&nbsp;&nbsp;
+									<iframe src='like.php?post_id=$id' scrolling='no'></iframe>
+								</div>
+
 							</div>
-								<br>
-							<div class = 'newsfeedPostOptions'>
-								<div class='PostStats'>
-									<iframe src='like.php?post_id=$id' scrolling='no' style='width: 100%; height:4rem;'></iframe>
-									<h4>Comments($comments_check_num)</h4>
-								</div>
-								<div class='post_comment' id='toggleComment$id' style='display: none;'>
-									<iframe src='comment_frame.php?post_id=$id' id='comment_iframe'
-									onload='iframeLoaded()' frameborder='0' style='width: 100%; height: 400px;'>
-									</iframe>
-								</div>
+							<div class='post_comment' id='toggleComment$id' style='display:none;'>
+								<iframe src='comment_frame.php?post_id=$id' id='comment_iframe' frameborder='0'></iframe>
 							</div>
-						</div>
-					</div>
-				</div>";
+							<hr>";
 
 
 				?>

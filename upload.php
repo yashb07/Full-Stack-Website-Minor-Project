@@ -28,7 +28,7 @@ if(isset($_FILES['image']['name'])){
 		$ImageType = @explode('/', $_FILES['image']['type']);
 		$type = $ImageType[1]; //file type	
 	//Set Upload directory    
-		$uploaddir = $_SERVER['DOCUMENT_ROOT'].'/Demo/assets/images/profile_pics';
+		$uploaddir = $_SERVER['DOCUMENT_ROOT'].'/Full-Stack-Website-Minor-Project/assets/images/profile_pics';
 	//Set File name	
 		$file_temp_name = $profile_id.'_original.'.md5(time()).'n'.$type; //the temp file name
 		$fullpath = $uploaddir."/".$file_temp_name; // the temp file path
@@ -114,8 +114,8 @@ if (isset($_POST['x'])){
 		//quality of the output
 			$jpeg_quality = 90;
 		//create a cropped copy of the image
-			$img_r = imagecreatefrompng($src);
-			$dst_r = imagecreatetruecolor( $targ_w, $targ_h );		
+			$dst_r = imagecreatetruecolor( $targ_w, $targ_h );
+			$img_r = imagecreatefrompng($src);		
 			imagecopyresampled($dst_r,$img_r,0,0,$_POST['x'],$_POST['y'],
 			$targ_w,$targ_h,$_POST['w'],$_POST['h']);
 		//save the new cropped version

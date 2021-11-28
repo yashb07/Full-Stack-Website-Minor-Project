@@ -13,8 +13,8 @@ require 'includes/form_handlers/login_handler.php';
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Connectify</title>
-    <link rel="stylesheet" href="./assets/css/style.css">
-    <link rel="stylesheet" href="./assets/css/utilities.css">
+    <link rel="stylesheet" href="./assets/css/loginsignup.css?v=<?php echo time(); ?>">
+    <link rel="stylesheet" href="./css/utilities.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
@@ -22,11 +22,11 @@ require 'includes/form_handlers/login_handler.php';
     <div class="flex-container flex">
         <div class="left flex">
             <div class="left-logo">
-                <img src="./images/logoMain.png" alt="Logo" class="logo">
+                <img src="./assets/images/backgrounds/logoMain.png" alt="Logo" class="logo">
             </div>
             <h1 class="title">Welcome to Connectify!</h1>
             <h4>Connect with your friends and share<br>by joining our community now!</h4>
-            <img src="./images/login_logo.png" alt="Rocket Image" class="rocket">
+            <img src="./assets/images/backgrounds/login_logo.png" alt="Rocket Image" class="rocket">
         </div>
         <div class="right flex">
             <div class="right-btn">

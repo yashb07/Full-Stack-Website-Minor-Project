@@ -121,28 +121,22 @@ class Notification {
 			$opened = $row['opened'];
 			$style = ($opened == 'no') ? "background-color: #DDEDFF;" : "";
 
-			$return_string .= "
-			<a href='" . $row['link'] . "'> 
-				<div class='dropdown' style='" . $style . "'>
-					<img src='" . $user_data['profile_pic'] . "'>
-					<div class='dropdown-details'>
-						<p>" . $time_message . "</p>
-						<p>" . $row['message'] . "</p>
-					</div>
-				</div>
-			</a>";
+			$return_string .= "<a href='" . $row['link'] . "'> 
+									<div class='resultDisplay resultDisplayNotification' style='" . $style . "'>
+										<div class='notificationsProfilePic'>
+											<img src='" . $user_data['profile_pic'] . "'>
+										</div>
+										<p class='timestamp_smaller' id='grey'>" . $time_message . "</p>" . $row['message'] . "
+									</div>
+								</a>";
 		}
 
 
 		//If posts were loaded
 		if($count > $limit)
-			$return_string .= "
-			<input type='hidden' class='nextPageDropdownData' value='" . ($page + 1) . "'>
-			<input type='hidden' class='noMoreDropdownData' value='false'>";
+			$return_string .= "<input type='hidden' class='nextPageDropdownData' value='" . ($page + 1) . "'><input type='hidden' class='noMoreDropdownData' value='false'>";
 		else 
-			$return_string .= "
-			<input type='hidden' class='noMoreDropdownData' value='true'>
-			<p style='text-align: center;'>No more notifications to load!</p>";
+			$return_string .= "<input type='hidden' class='noMoreDropdownData' value='true'> <p style='text-align: center;'>No more notifications to load!</p>";
 
 		return $return_string;
 	}

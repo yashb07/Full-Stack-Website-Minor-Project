@@ -28,14 +28,14 @@ if($query != ""){
 		else 
 			$mutual_friends = "";
 
-		echo "<div class='result-display'>
-				<a class='display-container' href='" . $row['username'] . "'>
+		echo "<div class='resultDisplay'>
+				<a href='" . $row['username'] . "' style='color: #1485BD'>
 					<div class='liveSearchProfilePic'>
 						<img src='" . $row['profile_pic'] ."'>
 					</div>
 
 					<div class='liveSearchText'>
-					<p>" . $row['first_name'] . " " . $row['last_name'] . "</p>
+						" . $row['first_name'] . " " . $row['last_name'] . "
 						<p>" . $row['username'] ."</p>
 						<p id='grey'>" . $mutual_friends ."</p>
 					</div>
